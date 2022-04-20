@@ -1,3 +1,5 @@
+use std::io::{self};
+
 // Enumerator for the different tokens in Brainfuck
 #[derive(PartialEq, Eq)]
 enum Token {
@@ -23,4 +25,17 @@ enum Command {
     Loop(Vec<Command>),
 }
 
-fn main() {}
+fn main() {
+    let mut source = String::new();
+    loop {
+        let mut inp = String::new();
+        io::stdin()
+            .read_line(&mut inp)
+            .expect("Error reading from stdin");
+        inp = inp.trim().to_string();
+        if inp == "" {
+            break;
+        }
+        source = inp;
+    }
+}
