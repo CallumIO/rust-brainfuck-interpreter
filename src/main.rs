@@ -58,7 +58,11 @@ impl Program {
                     self.output.push(self.tape[self.pointer] as char);
                     println!("{}", self.output);
                 }
-                Command::Loop(commands) => {}
+                Command::Loop(commands) => {
+                    while self.tape[self.pointer] != 0 {
+                        self.command_parser(commands)
+                    }
+                }
             }
         }
     }
