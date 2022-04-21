@@ -54,7 +54,10 @@ impl Program {
                     io::stdin().read_line(&mut input);
                     self.tape[self.pointer] = input.chars().next().unwrap() as u8;
                 }
-                Command::Out => {}
+                Command::Out => {
+                    self.output.push(self.tape[self.pointer] as char);
+                    println!("{}", self.output);
+                }
                 Command::Loop(commands) => {}
             }
         }
