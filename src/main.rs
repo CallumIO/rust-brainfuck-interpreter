@@ -48,7 +48,12 @@ impl Program {
                 Command::Dec => self.tape[self.pointer] -= 1,
                 Command::PtrR => self.pointer += 1,
                 Command::PtrL => self.pointer -= 1,
-                Command::In => {}
+                Command::In => {
+                    let mut input = String::new();
+                    print!("The program requires your input: ");
+                    io::stdin().read_line(&mut input);
+                    self.tape[self.pointer] = input.chars().next().unwrap() as u8;
+                }
                 Command::Out => {}
                 Command::Loop(commands) => {}
             }
