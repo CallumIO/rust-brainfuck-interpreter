@@ -43,6 +43,10 @@ impl Program {
     }
     pub fn commands(&mut self, commands: &[Command]) {
         for command in commands {
+            match command {
+                Command::Inc => self.tape[self.pointer] += 1,
+                Command::Dec => self.tape[self.pointer] -= 1,
+            }
         }
     }
 }
