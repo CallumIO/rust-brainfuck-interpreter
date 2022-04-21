@@ -29,14 +29,16 @@ enum Command {
 // Class representing the program and its tape
 
 struct Program {
-    tape: [u16; 4096],
+    tape: [u8; 4096],
     pointer: usize,
+    output: String,
 }
 impl Program {
     pub fn new() -> Program {
         Program {
-            tape: [0u16; 4096],
+            tape: [0u8; 4096],
             pointer: 0,
+            output: String::new(),
         }
     }
 fn clear_console() {
