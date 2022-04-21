@@ -41,7 +41,7 @@ impl Program {
             output: String::new(),
         }
     }
-    pub fn commands(&mut self, commands: &[Command]) {
+    pub fn command_parser(&mut self, commands: &[Command]) {
         for command in commands {
             match command {
                 Command::Inc => self.tape[self.pointer] += 1,
