@@ -84,6 +84,6 @@ fn main() {
         if inp == "" {
             break;
         }
-        source = inp;
+        source.push_str(&inp)
     }
 }
