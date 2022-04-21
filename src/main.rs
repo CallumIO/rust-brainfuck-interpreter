@@ -25,6 +25,21 @@ enum Command {
     Loop(Vec<Command>),
 }
 
+// Class representing the program and its tape
+
+struct Program {
+    tape: [u16; 4096],
+    pointer: usize,
+}
+impl Program {
+    pub fn new() -> Program {
+        Program {
+            tape: [0u16; 4096],
+            pointer: 0,
+        }
+    }
+}
+
 fn main() {
     let mut source = String::new();
     loop {
