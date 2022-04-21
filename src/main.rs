@@ -1,4 +1,5 @@
 use std::io::{self};
+use std::process::Command as Cmd;
 
 // Enumerator for the different tokens in Brainfuck
 #[derive(PartialEq, Eq)]
@@ -38,6 +39,8 @@ impl Program {
             pointer: 0,
         }
     }
+fn clear_console() {
+    Cmd::new("clear");
 }
 
 fn main() {
