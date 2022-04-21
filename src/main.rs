@@ -46,6 +46,8 @@ impl Program {
             match command {
                 Command::Inc => self.tape[self.pointer] += 1,
                 Command::Dec => self.tape[self.pointer] -= 1,
+                Command::PtrR => self.pointer += 1,
+                Command::PtrL => self.pointer -= 1,
             }
         }
     }
