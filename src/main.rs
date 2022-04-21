@@ -41,6 +41,12 @@ impl Program {
             output: String::new(),
         }
     }
+    pub fn commands(&mut self, commands: &[Command]) {
+        for command in commands {
+        }
+    }
+}
+
 fn clear_console() {
     Cmd::new("clear");
 }
