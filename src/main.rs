@@ -48,6 +48,9 @@ impl Program {
                 Command::Dec => self.tape[self.pointer] -= 1,
                 Command::PtrR => self.pointer += 1,
                 Command::PtrL => self.pointer -= 1,
+                Command::In => {}
+                Command::Out => {}
+                Command::Loop(commands) => {}
             }
         }
     }
