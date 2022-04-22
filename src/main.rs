@@ -41,7 +41,8 @@ impl Program {
             output: String::new(),
         }
     }
-    pub fn command_parser(&mut self, commands: &[Command]) {
+
+    fn execute(&mut self, commands: &[Command]) {
         for command in commands {
             match command {
                 Command::Inc => self.tape[self.pointer] += 1,
@@ -61,7 +62,7 @@ impl Program {
                 }
                 Command::Loop(commands) => {
                     while self.tape[self.pointer] != 0 {
-                        self.command_parser(commands);
+                        self.execute(commands);
                     }
                 }
             }
