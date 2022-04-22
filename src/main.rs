@@ -32,13 +32,16 @@ struct Program {
     tape: [u8; 4096],
     pointer: usize,
     output: String,
+    source: String,
 }
 impl Program {
-    pub fn new() -> Program {
+
+    fn new(src: &str) -> Program {
         Program {
             tape: [0u8; 4096],
             pointer: 0,
             output: String::new(),
+            source: src.to_owned(),
         }
     }
 
