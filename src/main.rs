@@ -56,7 +56,6 @@ impl Program {
                     self.tape[self.pointer] = input.chars().next().unwrap() as u8;
                 }
                 Command::Out => {
-                    clear_console();
                     self.output.push(self.tape[self.pointer] as char);
                     println!("{}", self.output);
                 }
