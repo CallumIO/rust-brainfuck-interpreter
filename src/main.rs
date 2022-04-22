@@ -99,4 +99,6 @@ fn main() {
         }
         source.push_str(&inp)
     }
+    let mut program = Program::new(&source);
+    program.run();
 }
