@@ -75,6 +75,11 @@ impl Program {
             }
         }
     }
+
+    fn run(&mut self){
+        let cmds = self.tokenize();
+        self.execute(&cmds);
+    }
 }
 
 fn clear_console() {
