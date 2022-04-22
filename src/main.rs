@@ -88,17 +88,17 @@ fn clear_console() {
 
 fn main() {
     let mut source = String::new();
-    loop {
-        let mut inp = String::new();
-        io::stdin()
-            .read_line(&mut inp)
-            .expect("Error reading from stdin");
-        inp = inp.trim().to_string();
-        if inp == "" {
-            break;
-        }
-        source.push_str(&inp)
-    }
+    // loop {
+    //     let mut inp = String::new();
+    //     io::stdin()
+    //         .read_line(&mut inp)
+    //         .expect("Error reading from stdin");
+    //     inp = inp.trim().to_string();
+    //     if inp == "" {
+    //         break;
+    //     }
+    //     source.push_str(&inp)
+    // }
     let mut program = Program::new(&source);
     program.run();
 }
