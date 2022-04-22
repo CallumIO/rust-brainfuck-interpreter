@@ -45,6 +45,11 @@ impl Program {
         }
     }
 
+    fn tokenize(&mut self) -> Vec<Command> {
+        let mut p = Vec::new();
+        return p;
+    }
+
     fn execute(&mut self, commands: &[Command]) {
         for command in commands {
             match command {
