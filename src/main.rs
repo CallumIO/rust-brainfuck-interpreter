@@ -1,3 +1,4 @@
+use std::collections::VecDeque;
 use std::io::{self};
 
 // Enumerator for the different tokens in Brainfuck
@@ -60,6 +61,23 @@ impl Program {
                 _ => Token::Ignore,
             })
             .filter(|op| op.ne(&Token::Ignore));
+
+        let mut tokenized_program: VecDeque<Vec<Command>> = VecDeque::new();
+        tokenized_program.push_back(Vec::new());
+        for i in parsed {
+            let section = tokenized_program.back_mut();
+            match i {
+                Token::PtrR => {}
+                Token::PtrL => {}
+                Token::Inc => {}
+                Token::Dec => {}
+                Token::Out => {}
+                Token::In => {}
+                Token::SLoop => {}
+                Token::ELoop => {}
+            }
+        }
+
         return p;
     }
 
