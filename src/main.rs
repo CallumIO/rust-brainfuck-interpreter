@@ -67,14 +67,15 @@ impl Program {
         for i in parsed {
             let section = tokenized_program.back_mut();
             match i {
-                Token::PtrR => {}
-                Token::PtrL => {}
-                Token::Inc => {}
-                Token::Dec => {}
-                Token::Out => {}
-                Token::In => {}
-                Token::SLoop => {}
+                Token::PtrR => section.unwrap().push(Command::PtrR),
+                Token::PtrL => section.unwrap().push(Command::PtrL),
+                Token::Inc => section.unwrap().push(Command::Inc),
+                Token::Dec => section.unwrap().push(Command::Dec),
+                Token::Out => section.unwrap().push(Command::Out),
+                Token::In => section.unwrap().push(Command::In),
+                Token::SLoop => tokenized_program.push_back(Vec::new()),
                 Token::ELoop => {}
+                _ => {}
             }
         }
 
