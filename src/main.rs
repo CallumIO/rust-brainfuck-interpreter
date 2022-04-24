@@ -45,6 +45,21 @@ impl Program {
 
     fn tokenize(&mut self) -> Vec<Command> {
         let mut p = Vec::new();
+        let parsed = self
+            .source
+            .chars()
+            .map(|tok| match tok {
+                '>' => Token::PtrR,
+                '<' => Token::PtrL,
+                '+' => Token::Inc,
+                '-' => Token::Dec,
+                '.' => Token::Out,
+                ',' => Token::In,
+                '[' => Token::SLoop,
+                ']' => Token::ELoop,
+                _ => Token::Ignore,
+            })
+            .filter(|op| op.ne(&Token::Ignore));
         return p;
     }
 
