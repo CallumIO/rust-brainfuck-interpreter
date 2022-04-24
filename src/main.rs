@@ -45,7 +45,6 @@ impl Program {
     }
 
     fn tokenize(&mut self) -> Vec<Command> {
-        let mut p = Vec::new();
         let parsed = self
             .source
             .chars()
@@ -74,12 +73,20 @@ impl Program {
                 Token::Out => section.unwrap().push(Command::Out),
                 Token::In => section.unwrap().push(Command::In),
                 Token::SLoop => tokenized_program.push_back(Vec::new()),
-                Token::ELoop => {}
+                Token::ELoop => {
+                    let sector = tokenized_program.pop_back().unwrap();
+                    if !tokenized_program.is_empty() {
+                        tokenized_program
+                            .back_mut()
+                            .unwrap()
+                            .push(Command::Loop(sector));
+                    }
+                }
                 _ => {}
             }
         }
 
-        return p;
+        return tokenized_program.pop_back().unwrap();
     }
 
     fn execute(&mut self, commands: &[Command]) {
