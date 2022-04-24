@@ -1,5 +1,4 @@
 use std::io::{self};
-use std::process::Command as Cmd;
 
 // Enumerator for the different tokens in Brainfuck
 #[derive(PartialEq, Eq)]
@@ -35,7 +34,6 @@ struct Program {
     source: String,
 }
 impl Program {
-
     fn new(src: &str) -> Program {
         Program {
             tape: [0u8; 4096],
@@ -76,14 +74,10 @@ impl Program {
         }
     }
 
-    fn run(&mut self){
+    fn run(&mut self) {
         let cmds = self.tokenize();
         self.execute(&cmds);
     }
-}
-
-fn clear_console() {
-    Cmd::new("clear");
 }
 
 fn main() {
