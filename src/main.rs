@@ -1,4 +1,5 @@
 use std::collections::VecDeque;
+use std::fs;
 use std::io::{self};
 
 // Enumerator for the different tokens in Brainfuck
@@ -124,18 +125,8 @@ impl Program {
 }
 
 fn main() {
-    let mut source = String::new();
-    // loop {
-    //     let mut inp = String::new();
-    //     io::stdin()
-    //         .read_line(&mut inp)
-    //         .expect("Error reading from stdin");
-    //     inp = inp.trim().to_string();
-    //     if inp == "" {
-    //         break;
-    //     }
-    //     source.push_str(&inp)
-    // }
+    let file = "src\\callum.bf";
+    let source = fs::read_to_string(file).expect("Could not read file");
     let mut program = Program::new(&source);
     program.run();
 }
