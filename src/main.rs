@@ -1,4 +1,5 @@
 use std::collections::VecDeque;
+use std::env;
 use std::fs;
 use std::io::{self};
 
@@ -125,7 +126,8 @@ impl Program {
 }
 
 fn main() {
-    let file = "src\\callum.bf";
+    let args: Vec<String> = env::args().collect();
+    let file = &args[1];
     let source = fs::read_to_string(file).expect("Could not read file");
     let mut program = Program::new(&source);
     program.run();
