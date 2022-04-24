@@ -73,7 +73,9 @@ impl Program {
                 Command::In => {
                     let mut input = String::new();
                     print!("The program requires your input: ");
-                    io::stdin().read_line(&mut input);
+                    io::stdin()
+                        .read_line(&mut input)
+                        .expect("Could not read from stdin");
                     self.tape[self.pointer] = input.chars().next().unwrap() as u8;
                 }
                 Command::Out => {
